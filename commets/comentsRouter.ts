@@ -1,13 +1,22 @@
 import express, { Router,Request,Response } from "express";
+import jsonfile from 'jsonfile'
+import path from "path";
 
 const CommetsRouter :Router = Router();
 
 CommetsRouter.get("/",(req:Request,res:Response)=>{
-    res.json({
-        msg:"From comets router",
-        url:req.baseUrl,
-        method:req.method
-    })
+    const userjsonPath=path.join(__dirname,"..","data","post.json");
+    try{
+        jsonfile.readFile(userjsonPath,(err,obj)=>{
+            if(err)console.error(err)
+            res.json({data:obj})
+        })
+    }
+    catch{
+        res.status(500).json({
+            msg:"server error",
+            userjsonPath:userjsonPath
+        })
+    }
 })
-
 export default CommetsRouter;

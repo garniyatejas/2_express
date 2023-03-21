@@ -1,11 +1,11 @@
 import express, { Router,Request,Response } from "express";
-import jsonfile from 'jsonfile'
+import jsonfile from 'jsonfile';
 import path from "path";
 
-const albumRouter :Router = Router();
+const userRouter :Router = Router();
 
-albumRouter.get("/",(req:Request,res:Response)=>{
-    const userjsonPath=path.join(__dirname,"..","data","album.json");
+userRouter.get("/",(req:Request,res:Response)=>{
+    const userjsonPath=path.join(__dirname,"..","data","users.json");
     try{
         jsonfile.readFile(userjsonPath,(err,obj)=>{
             if(err)console.error(err)
@@ -19,4 +19,5 @@ albumRouter.get("/",(req:Request,res:Response)=>{
         })
     }
 })
-export default albumRouter;
+
+export default userRouter;

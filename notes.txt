@@ -8,3 +8,6 @@ npm install @types/node express @types/express ts-node typescript
  userRouter
  http://127.0.0.1:8080/user               -> home  / defualt server.ts(main)
  http://127.0.0.1:8080/user/register      -> home  / defualt server.ts(main)
+
+
+npm install jsonfile @types/jsonfile

@@ -1,9 +1,9 @@
 import express ,{Application,Request,Response} from 'express'
 import CommetsRouter from './commets/comentsRouter';
-import ambumRouter from './albums/albumsRouter';
+import albumRouter from './albums/albumsRouter';
 import todosRouter from './todos/todosRouter';
 import postRouter from './post/postRouter';
-
+import userRouter from './user/userRouter';
 
 const app:express.Application = express()
 
@@ -16,9 +16,10 @@ app.get("/",(req:Request,res:Response)=>{
 })
 //Router Configuration
 app.use("/api/comments",CommetsRouter);
-app.use("/api/ambums",ambumRouter);
+app.use("/api/albums",albumRouter);
 app.use("/api/todos",todosRouter);
 app.use("/api/post",postRouter);
+app.use("/api/user",userRouter);
 
 app.listen(port,hostname,()=>{
     console.log(`Server started at http://${hostname}:${port}`);
